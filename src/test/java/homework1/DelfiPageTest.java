@@ -14,14 +14,14 @@ public class DelfiPageTest {
 
     private static final String LINK_TO_DELFI = "https://rus.delfi.lv/";
 
-    private WebDriver driver; /*Korobka i nazvanie peremennoj*/
+    private WebDriver driver; /*Box and name for variable*/
 
     @Before
     public void setUp() {
 
         System.setProperty("webdriver.gecko.driver", "C:/geckodriver.exe");
 
-        driver = new FirefoxDriver(); // realizacija drivera
+        driver = new FirefoxDriver(); // Driver realisation.
 
         driver.manage().window().maximize();
     }
@@ -30,15 +30,15 @@ public class DelfiPageTest {
     public void shouldCheckIfArticleExist() {
 
         //Arrange
-        String statja = "В воскресенье в Латвии ожидается жара до +27 градусов";
+        String ourarticle = "Вся правда о выпускных: популярные мифы и полезные советы";
 
         //Act
         driver.get(LINK_TO_DELFI);
-        WebElement linknastatju = driver.findElement(By.linkText(statja));
+        WebElement linkforourarticle = driver.findElement(By.linkText(ourarticle));
 
         //Assert
-        boolean statjaPokazivajetsa = linknastatju.isDisplayed();
-        assertTrue(statjaPokazivajetsa);
+        boolean articleisshown= linkforourarticle.isDisplayed();
+        assertTrue(articleisshown);
     }
 
 

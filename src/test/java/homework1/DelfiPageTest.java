@@ -16,6 +16,9 @@ public class DelfiPageTest {
 
     private WebDriver driver; /*Box and name for variable*/
 
+    String ourArticle = "Трагедия в Лиепае: мальчик играл у подножия дюны, берег не считали опасным";
+    By ARTICLE_LOCATOR = By.linkText(ourArticle);
+
     @Before
     public void setUp() {
 
@@ -30,15 +33,15 @@ public class DelfiPageTest {
     public void shouldCheckIfArticleExist() {
 
         //Arrange
-        String ourarticle = "Вся правда о выпускных: популярные мифы и полезные советы";
+
 
         //Act
         driver.get(LINK_TO_DELFI);
-        WebElement linkforourarticle = driver.findElement(By.linkText(ourarticle));
+        WebElement linkForOurArticle = driver.findElement(ARTICLE_LOCATOR);
 
         //Assert
-        boolean articleisshown= linkforourarticle.isDisplayed();
-        assertTrue(articleisshown);
+
+        assertTrue(linkForOurArticle.isDisplayed());
     }
 
 

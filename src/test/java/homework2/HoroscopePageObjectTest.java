@@ -7,9 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class HoroscopePageObjectTest {
-    //В самом тесте больше никаких локаторов, только те переменные, что нужны самой логике теста
-    //Сам Driver тепеь находится в BaseFunc и может использоваться отовсюду
-    //Как только мы создаём копию объкта BaseFunc - принудительно срабатывает конструетор, где происходит открытие браузера
+   
     private BaseFunc baseFunc;
     private final String HOROSCOPE_PAGE = "http://www.delfi.lv/orakuls/horoskopi/";
 
@@ -85,7 +83,7 @@ public class HoroscopePageObjectTest {
     private void testHoroscope(String horoscopeName, String horoscopeDate) {
         baseFunc.openPage(HOROSCOPE_PAGE);
 
-        //Указываем тесту, что находимся на конкретной странице - это позволяет нам использовать инструменты этой страницы
+        
         HoroscopeHomePage homePage = new HoroscopeHomePage(baseFunc);
         String dateFromHomePage = homePage.getHoroscopeDate(horoscopeName);
         assertEquals(horoscopeDate, dateFromHomePage);
